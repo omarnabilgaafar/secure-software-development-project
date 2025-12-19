@@ -1,0 +1,9 @@
+rules:
+  - id: permissive-cors
+    languages: [javascript]
+    message: "Permissive or missing CORS configuration detected."
+    severity: ERROR
+    patterns:
+      - pattern-either:
+          - pattern: res.header("Access-Control-Allow-Origin", "*")
+          - pattern: app.use(cors())

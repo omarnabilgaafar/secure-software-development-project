@@ -1,0 +1,10 @@
+rules:
+  - id: express-user-enumeration
+    languages:
+      - javascript
+    message: Potential user enumeration via distinguishable authentication error messages.
+    severity: ERROR
+    patterns:
+      - pattern-either:
+          - pattern: 'res.status(404).send({ error: "User was not found" })'
+          - pattern: 'res.status(401).send({ error: "Incorrect password" })'

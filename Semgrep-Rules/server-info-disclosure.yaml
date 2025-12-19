@@ -1,0 +1,7 @@
+rules:
+  - id: server-info-disclosure
+    languages: [javascript]
+    message: "Server information disclosure via default Express headers."
+    severity: INFO
+    patterns:
+      - pattern: app = express()

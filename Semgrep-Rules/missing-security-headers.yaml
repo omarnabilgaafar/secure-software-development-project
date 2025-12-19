@@ -1,0 +1,9 @@
+rules:
+  - id: missing-security-headers
+    languages: [javascript]
+    message: "Missing important HTTP security headers."
+    severity: WARNING
+    patterns:
+      - pattern-either:
+          - pattern: app.use((req, res, next) => { next(); })
+          - pattern: res.setHeader("Content-Security-Policy", ...)
